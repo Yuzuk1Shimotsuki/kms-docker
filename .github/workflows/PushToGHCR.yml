@@ -1,0 +1,41 @@
+name: Build and push the image to GitHub Container registry (GHCR)
+
+on:
+  push:
+    branches:
+      - stable  # The current branch (hardcoded)
+
+jobs:
+  build_and_push:
+    if: github.event_name == 'push' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Checkout repository
+        uses: actions/checkout@v3
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_TOKEN }}
+      - 
+        name: Convert variables to lowercase  # Docker does not accept any uppercase letters
+        run: |
+          echo "REPO_LOWERCASE=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+          echo "BRANCH_LOWERCASE=${GITHUB_REF_NAME,,}" >> ${GITHUB_ENV}
+      - 
+        name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ env.REPO_LOWERCASE }}/${{ env.BRANCH_LOWERCASE }}:latest
