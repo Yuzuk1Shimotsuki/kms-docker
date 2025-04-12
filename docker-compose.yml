@@ -5,6 +5,8 @@ services:
     ports:
       - "1688:1688"
     restart: always
+    networks:
+      - web-network
 
 networks:
   # Set up a replication network
