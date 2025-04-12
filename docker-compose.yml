@@ -1,0 +1,12 @@
+services:
+  vlmcsd:
+    image: ghcr.io/yuzuk1shimotsuki/kms-docker:latest
+    container_name: kms-docker
+    ports:
+      - "1688:1688"
+    restart: always
+
+networks:
+  # Set up a replication network
+  web-network:
+    external: true
