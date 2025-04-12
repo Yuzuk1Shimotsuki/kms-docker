@@ -1,6 +1,6 @@
 services:
   vlmcsd:
-    image: ghcr.io/yuzuk1shimotsuki/kms-docker:latest
+    image: ghcr.io/yuzuk1shimotsuki/kms-docker/stable:latest
     container_name: kms-docker
     ports:
       - "1688:1688"
