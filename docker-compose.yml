@@ -3,7 +3,7 @@ services:
     container_name: kms-docker
     image: ghcr.io/yuzuk1shimotsuki/kms-docker/stable:latest
     ports:
-      - "12845:1688"
+      - "1688:1688"
     restart: always
     networks:
       - web-network
