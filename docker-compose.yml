@@ -1,7 +1,7 @@
 services:
   kms-docker:
     container_name: kms-docker
-    image: ghcr.io/yuzuk1shimotsuki/kms-docker/stable:latest
+    build: .
     ports:
       - "1688:1688"
     restart: always
