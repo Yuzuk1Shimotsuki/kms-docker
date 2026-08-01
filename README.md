@@ -20,7 +20,7 @@ docker pull ghcr.io/hoshinowo-yuki/kms-docker/stable
 
 Then copy the `docker-compose.yml` file from this repo or create your own as follows:
 
-```bash
+```yaml
 services:
   kms-docker:
     container_name: kms-docker
