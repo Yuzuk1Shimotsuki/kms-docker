@@ -10,7 +10,7 @@ For more information such as the usage of vlmcsd, refer to their official [GitHu
 
 # Usage
 
-## Direct Download
+### Direct Download
 
 Pull the latest public image from **[packages](https://github.com/Hoshinowo-Yuki/kms-docker/pkgs/container/kms-docker%2Fstable)** session inside this repo:
 
@@ -36,7 +36,7 @@ and run the following command to start the container:
 docker-compose up -d
 ```
 
-## Build from Source
+### Build from Source
 
 Clone this repository and build the image from source:
 
