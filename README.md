@@ -30,8 +30,6 @@ services:
     restart: always
 ```
 
-and run the following command to start the container:
-
 ```bash
 docker-compose up -d
 ```
@@ -45,8 +43,6 @@ git clone https://github.com/Hoshinowo-Yuki/kms-docker.git
 cd kms-docker
 docker build -t kms-docker .
 ```
-
-and start the container inside the same directory when finished:
 
 ```bash
 docker-compose up -d
